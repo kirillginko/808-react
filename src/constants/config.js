@@ -44,6 +44,11 @@ const sequenceList = [
         soundFile: "clav",
         onNotes: [],
       },
+      {
+        title: "Rim",
+        soundFile: "rim",
+        onNotes: [],
+      },
     ],
   },
   // {
@@ -165,6 +170,7 @@ const soundFiles = {
   cowbell: "/sounds/808-CB1.wav",
   clav: "/sounds/808-CL1.wav",
   clap: "/sounds/808-CP1.wav",
+  rim: "/sounds/808-RS1.wav",
 };
 
 export { sequenceList, soundFiles };
