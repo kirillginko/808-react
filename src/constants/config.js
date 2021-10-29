@@ -2,12 +2,13 @@ const sequenceList = [
   {
     id: 0,
     title: "Init",
-    noteCount: 16,
+    noteCount: 32,
+    BPM: 120,
     trackList: [
       {
         title: "Kick",
         soundFile: "kick",
-        onNotes: [0, 4, 8, 12],
+        onNotes: [0, 4, 8, 12, 16, 20, 24, 28],
       },
       {
         title: "Bass",
@@ -43,6 +44,62 @@ const sequenceList = [
         title: "Clav",
         soundFile: "clav",
         onNotes: [],
+      },
+      {
+        title: "Rim",
+        soundFile: "rim",
+        onNotes: [],
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Sexual Healing",
+    noteCount: 32,
+    BPM: 94,
+    trackList: [
+      {
+        title: "Kick",
+        soundFile: "kick",
+        onNotes: [0, 7, 8, 9, 10, 12, 15, 16, 24, 31],
+      },
+      {
+        title: "Bass",
+        soundFile: "bass",
+        onNotes: [],
+      },
+      {
+        title: "Snare",
+        soundFile: "snare",
+        onNotes: [10, 11, 22, 23, 25, 27, 29],
+      },
+      {
+        title: "Clap",
+        soundFile: "clap",
+        onNotes: [4, 20],
+      },
+      {
+        title: "Open Hat",
+        soundFile: "hh_open",
+        onNotes: [6, 18, 22, 26, 29],
+      },
+      {
+        title: "Closed Hat",
+        soundFile: "hh_closed",
+        onNotes: [
+          0, 2, 3, 4, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 25, 26, 28, 30,
+          31,
+        ],
+      },
+      {
+        title: "CowBell",
+        soundFile: "cowbell",
+        onNotes: [],
+      },
+      {
+        title: "Clav",
+        soundFile: "clav",
+        onNotes: [0, 4, 6, 16, 19, 22, 26, 29],
       },
       {
         title: "Rim",

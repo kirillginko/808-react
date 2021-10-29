@@ -1,72 +1,83 @@
-import React, { useReducer, createContext } from 'react'
-import { sequenceList } from '../constants/config'
+import React, { useReducer, createContext } from "react";
+import { sequenceList } from "../constants/config";
 
 const Context = createContext({
-    sequence: {},
-    toggleNote: () => { },
-    selectSequence: () => { },
-})
+  sequence: {},
+  toggleNote: () => {},
+  selectSequence: () => {},
+});
 
 const appReducer = (state, action) => {
-    switch (action.type) {
-        case 'SET_SEQUENCE':
-            return {
-                ...sequenceList.find(seq => seq.id === action.value)
-            }
-        case 'SET_ON_NOTES':
-            let newTrackList = state.trackList.map((track, trackID) => {
-                if (action.trackID === trackID) {
-                    return {
-                        ...track,
-                        onNotes: action.value
-                    }
-                } else {
-                    return track
-                }
-            })
-            return {
-                ...state,
-                trackList: newTrackList
-            }
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case "SET_SEQUENCE":
+      return {
+        ...sequenceList.find((seq) => seq.id === action.value),
+      };
+    case "SET_BPM":
+      return {
+        ...sequenceList.find((seq) => seq.BPM === action.value),
+      };
+
+    case "SET_ON_NOTES":
+      let newTrackList = state.trackList.map((track, trackID) => {
+        if (action.trackID === trackID) {
+          return {
+            ...track,
+            onNotes: action.value,
+          };
+        } else {
+          return track;
+        }
+      });
+      return {
+        ...state,
+        trackList: newTrackList,
+      };
+    default:
+      return state;
+  }
+};
 
 const Provider = ({ children }) => {
-    const [sequence, dispatch] = useReducer(appReducer, { ...sequenceList[0] })
+  const [sequence, dispatch] = useReducer(appReducer, { ...sequenceList[0] });
 
-    const toggleNote = ({ trackID, stepID }) => {
-        let newOnNotes
-        const onNotes = sequence.trackList[trackID].onNotes
+  const toggleNote = ({ trackID, stepID }) => {
+    let newOnNotes;
+    const onNotes = sequence.trackList[trackID].onNotes;
 
-        if (onNotes.indexOf(stepID) === -1) {
-            newOnNotes = [...onNotes, stepID]
-        } else {
-            newOnNotes = onNotes.filter(col => col !== stepID)
-        }
-        dispatch({
-            type: 'SET_ON_NOTES',
-            value: newOnNotes,
-            trackID
-        })
+    if (onNotes.indexOf(stepID) === -1) {
+      newOnNotes = [...onNotes, stepID];
+    } else {
+      newOnNotes = onNotes.filter((col) => col !== stepID);
     }
+    dispatch({
+      type: "SET_ON_NOTES",
+      value: newOnNotes,
+      trackID,
+    });
+  };
 
-    const selectSequence = (sequenceID) => {
-        dispatch({
-            type: 'SET_SEQUENCE',
-            value: sequenceID,
-        })
-    }
+  const selectSequence = (sequenceID) => {
+    dispatch({
+      type: "SET_SEQUENCE",
+      value: sequenceID,
+    });
+  };
 
-    return (
-        <Context.Provider value={{ sequence, toggleNote, selectSequence }}>
-            {children}
-        </Context.Provider>
-    )
-}
+  const selectBPM = (sequenceBPM) => {
+    dispatch({
+      type: "SET_BPM",
+      value: sequenceBPM,
+    });
+  };
 
-export {
-    Provider,
-    Context
-}
+  return (
+    <Context.Provider
+      value={{ sequence, toggleNote, selectSequence, selectBPM }}
+    >
+      {children}
+    </Context.Provider>
+  );
+};
+
+export { Provider, Context };
