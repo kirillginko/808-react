@@ -11,11 +11,6 @@ const sequenceList = [
         onNotes: [0, 4, 8, 12, 16, 20, 24, 28],
       },
       {
-        title: "Bass",
-        soundFile: "bass",
-        onNotes: [],
-      },
-      {
         title: "Snare",
         soundFile: "snare",
         onNotes: [],
@@ -33,6 +28,21 @@ const sequenceList = [
       {
         title: "Closed Hat",
         soundFile: "hh_closed",
+        onNotes: [],
+      },
+      {
+        title: "HiTom",
+        soundFile: "hitom",
+        onNotes: [],
+      },
+      {
+        title: "MidTom",
+        soundFile: "midtom",
+        onNotes: [],
+      },
+      {
+        title: "LowTom",
+        soundFile: "lowtom",
         onNotes: [],
       },
       {
@@ -64,11 +74,6 @@ const sequenceList = [
         onNotes: [0, 7, 8, 9, 10, 12, 15, 16, 24, 31],
       },
       {
-        title: "Bass",
-        soundFile: "bass",
-        onNotes: [],
-      },
-      {
         title: "Snare",
         soundFile: "snare",
         onNotes: [10, 11, 22, 23, 25, 27, 29],
@@ -90,6 +95,21 @@ const sequenceList = [
           0, 2, 3, 4, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 25, 26, 28, 30,
           31,
         ],
+      },
+      {
+        title: "HiTom",
+        soundFile: "hitom",
+        onNotes: [2, 18],
+      },
+      {
+        title: "MidTom",
+        soundFile: "midtom",
+        onNotes: [22],
+      },
+      {
+        title: "LowTom",
+        soundFile: "lowtom",
+        onNotes: [28, 30],
       },
       {
         title: "CowBell",
@@ -220,7 +240,6 @@ const sequenceList = [
 
 const soundFiles = {
   kick: "/sounds/kick.wav",
-  bass: "/sounds/808 (Powder).wav",
   snare: "/sounds/snare.wav",
   hh_open: "/sounds/hh_open.wav",
   hh_closed: "/sounds/hh_closed.wav",
@@ -228,6 +247,9 @@ const soundFiles = {
   clav: "/sounds/808-CL1.wav",
   clap: "/sounds/808-CP1.wav",
   rim: "/sounds/808-RS1.wav",
+  hitom: "/sounds/808-HT1.wav",
+  midtom: "/sounds/808-MT1.wav",
+  lowtom: "/sounds/808-LT1.wav",
 };
 
 export { sequenceList, soundFiles };

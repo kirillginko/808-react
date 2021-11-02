@@ -1,41 +1,34 @@
-import React, { useContext, useEffect, memo } from 'react'
-import classNames from 'classnames'
-import { Context } from '../hooks/useStore'
-import './Note.css'
+import React, { useContext, useEffect, memo } from "react";
+import classNames from "classnames";
+import { Context } from "../hooks/useStore";
+import "./Note.css";
 
-const Note = ({
-    trackID,
-    stepID,
-    isNoteOn,
-    isNoteOnCurrentStep,
-    play
-}) => {
+const Note = ({ trackID, stepID, isNoteOn, isNoteOnCurrentStep, play }) => {
+  const { toggleNote } = useContext(Context);
+  const noteClassNames = classNames("note", {
+    on: isNoteOn,
+    playing: isNoteOn && isNoteOnCurrentStep,
+  });
 
-    const { toggleNote } = useContext(Context)
-    const noteClassNames = classNames('note', {
-        'on': isNoteOn,
-        'playing': isNoteOn && isNoteOnCurrentStep
-    })
-
-    useEffect(() => {
-        if (isNoteOn && isNoteOnCurrentStep) {
-            play()
-        }
-
-    }, [isNoteOn, isNoteOnCurrentStep, play])
-
-    const noteClicked = e => {
-        e.target.classList.toggle('on')
-        toggleNote({ trackID, stepID })
-        play()
+  useEffect(() => {
+    if (isNoteOn && isNoteOnCurrentStep) {
+      play();
     }
+  }, [isNoteOn, isNoteOnCurrentStep, play]);
 
-    return (
-        <div
-            className={noteClassNames}
-            onClick={noteClicked}
-        />
-    )
-}
+  const noteClicked = (e) => {
+    e.target.classList.toggle("on");
+    toggleNote({ trackID, stepID });
+    play();
+  };
 
-export default memo(Note)
+  return (
+    <>
+      <div className={noteClassNames} onClick={noteClicked}>
+        <button className="circle"></button>
+      </div>
+    </>
+  );
+};
+
+export default memo(Note);

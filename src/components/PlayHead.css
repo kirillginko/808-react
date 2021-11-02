@@ -2,7 +2,7 @@
     position: absolute;
     top: var(--note-margin-vert);
     left: calc(var(--track-title-width) + (var(--spacer) * 2));
-    height: 43.3rem;
+    height: 53rem;
     width: var(--play-head-width);
     background-color: var(--color-highlight);
   }
