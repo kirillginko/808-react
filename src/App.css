@@ -3,12 +3,13 @@
   --app-visibility: hidden;
 }
 
-html {
+html, body {
   font-size: var(--base-font-size);
   color: var(--color-fg);
   background: linear-gradient(52deg, rgba(208,57,50,1) 0%, rgba(208,57,50,1) 0%, rgba(233,142,47,1) 53%, rgba(223,212,65,1) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 .app {
